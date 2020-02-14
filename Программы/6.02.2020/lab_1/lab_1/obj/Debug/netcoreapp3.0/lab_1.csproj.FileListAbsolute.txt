@@ -1,0 +1,25 @@
+<<<<<<< HEAD
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\bin\Debug\netcoreapp3.0\lab_1.exe
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\bin\Debug\netcoreapp3.0\lab_1.deps.json
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\bin\Debug\netcoreapp3.0\lab_1.runtimeconfig.json
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\bin\Debug\netcoreapp3.0\lab_1.runtimeconfig.dev.json
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\bin\Debug\netcoreapp3.0\lab_1.dll
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\bin\Debug\netcoreapp3.0\lab_1.pdb
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\obj\Debug\netcoreapp3.0\lab_1.csprojAssemblyReference.cache
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\obj\Debug\netcoreapp3.0\lab_1.AssemblyInfoInputs.cache
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\obj\Debug\netcoreapp3.0\lab_1.AssemblyInfo.cs
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\obj\Debug\netcoreapp3.0\lab_1.dll
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\obj\Debug\netcoreapp3.0\lab_1.pdb
+=======
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\bin\Debug\netcoreapp3.0\lab_1.exe
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\bin\Debug\netcoreapp3.0\lab_1.deps.json
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\bin\Debug\netcoreapp3.0\lab_1.runtimeconfig.json
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\bin\Debug\netcoreapp3.0\lab_1.runtimeconfig.dev.json
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\bin\Debug\netcoreapp3.0\lab_1.dll
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\bin\Debug\netcoreapp3.0\lab_1.pdb
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\obj\Debug\netcoreapp3.0\lab_1.csprojAssemblyReference.cache
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\obj\Debug\netcoreapp3.0\lab_1.AssemblyInfoInputs.cache
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\obj\Debug\netcoreapp3.0\lab_1.AssemblyInfo.cs
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\obj\Debug\netcoreapp3.0\lab_1.dll
+C:\Users\Ibrag\Desktop\C#\labs\6.02.2020\lab_1\lab_1\obj\Debug\netcoreapp3.0\lab_1.pdb
+>>>>>>> d9d21ade0fba1d9bf8262ff3ea6ec30fbb5904af

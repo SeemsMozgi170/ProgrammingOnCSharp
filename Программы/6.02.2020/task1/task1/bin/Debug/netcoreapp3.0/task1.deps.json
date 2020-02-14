@@ -1,0 +1,48 @@
+<<<<<<< HEAD
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "task1/1.0.0": {
+        "runtime": {
+          "task1.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "task1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+=======
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "task1/1.0.0": {
+        "runtime": {
+          "task1.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "task1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+>>>>>>> d9d21ade0fba1d9bf8262ff3ea6ec30fbb5904af
+}

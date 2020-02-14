@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossZero_Games", "CrossZero_Games\CrossZero_Games.csproj", "{1230CFA4-754E-4FC4-8C7C-5FD1C7E7F593}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1230CFA4-754E-4FC4-8C7C-5FD1C7E7F593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1230CFA4-754E-4FC4-8C7C-5FD1C7E7F593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1230CFA4-754E-4FC4-8C7C-5FD1C7E7F593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1230CFA4-754E-4FC4-8C7C-5FD1C7E7F593}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F34EF26-DA3D-4EF6-A2FE-C349B6AAB28C}
+	EndGlobalSection
+EndGlobal

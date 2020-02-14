@@ -1,0 +1,11 @@
+C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\bin\Debug\netcoreapp3.0\CrossZero_Games.exe
+C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\bin\Debug\netcoreapp3.0\CrossZero_Games.deps.json
+C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\bin\Debug\netcoreapp3.0\CrossZero_Games.runtimeconfig.json
+C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\bin\Debug\netcoreapp3.0\CrossZero_Games.runtimeconfig.dev.json
+C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\bin\Debug\netcoreapp3.0\CrossZero_Games.dll
+C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\bin\Debug\netcoreapp3.0\CrossZero_Games.pdb
+C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\obj\Debug\netcoreapp3.0\CrossZero_Games.csprojAssemblyReference.cache
+C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\obj\Debug\netcoreapp3.0\CrossZero_Games.AssemblyInfoInputs.cache
+C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\obj\Debug\netcoreapp3.0\CrossZero_Games.AssemblyInfo.cs
+C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\obj\Debug\netcoreapp3.0\CrossZero_Games.dll
+C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\obj\Debug\netcoreapp3.0\CrossZero_Games.pdb
