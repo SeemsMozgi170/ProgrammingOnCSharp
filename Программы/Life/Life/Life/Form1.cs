@@ -12,11 +12,12 @@ using System.Windows.Forms;
 namespace Life {
     public partial class Form1 : Form {
 
-        public static Size size = new Size(10, 10);
-        List<Entity> allPersonM = new List<Entity>();
-        List<Entity> allPersonW = new List<Entity>();
+        public static Size size = new Size(20, 20);
+        List<Entity> allPerson = new List<Entity>();
         List<Point> allFood = new List<Point>();
+        List<Entity> allDeadPerson = new List<Entity>();
         Graphics g;
+        public static List<Color> colors = new List<Color>() { Color.Blue, Color.Red, Color.Green };
         readonly Random random = new Random();
         long step = 0;
 
@@ -27,8 +28,9 @@ namespace Life {
         public void generateFood() {
             Point p;
             allFood.Clear();
-            for (int i = 0; i < random.Next(10, 100); i++) {
-                p = new Point(random.Next(5, board.Width - 5), random.Next(5, board.Height - 5));
+            int countFood = random.Next(10,100);
+            for (int i = 0; i < countFood; i++) {
+                p = new Point(random.Next(size.Width, board.Width - size.Width), random.Next(size.Height, board.Height - size.Height));
                 allFood.Add(p);
             }
         }
@@ -36,27 +38,66 @@ namespace Life {
         private void Form1_Load(object sender, EventArgs e) {
             board.Size = new Size(800, 600);
             timer1.Enabled = true;
-            allPersonM.Add(new Entity(new Point(395, 295),Color.Blue));
-            allPersonW.Add(new Entity(new Point(400, 300),Color.Red));
+            allPerson.Add(new Entity(new Point(385, 285),colors[0]));
+            allPerson.Add(new Entity(new Point(400, 300),colors[1]));
         }
 
         private void board_Paint(object sender, PaintEventArgs e) {
             g = e.Graphics;
-            foreach (Entity entity in allPersonM) {
-                g.FillEllipse(new SolidBrush(entity.gender), new Rectangle(entity.position, size));
-            }
-            foreach (Entity entity in allPersonW) {
+            foreach (Entity entity in allPerson) {
                 g.FillEllipse(new SolidBrush(entity.gender), new Rectangle(entity.position, size));
             }
             if (step % 100 == 0) generateFood();
-            foreach (Point p in allFood)
-                g.FillEllipse(new SolidBrush(Color.Green), new Rectangle(p, size));
+            //foreach (Point p in allFood)
+            //    g.FillEllipse(new SolidBrush(colors[2]), new Rectangle(p, size));
         }
 
         private void Timer1_Tick(object sender, EventArgs e) {
             step++;
-            foreach (Entity entity in allPersonM) entity.Run(board);
-            foreach (Entity entity in allPersonW) entity.Run(board);
+            List<Entity> children = new List<Entity>();
+            foreach (Entity entity in allPerson) {
+                entity.Run(board);
+                List<Point> ateFoot = new List<Point>();
+                foreach (Point posFood in allFood) {
+                    if (entity.isPersonalSpaceFood(posFood)) ateFoot.Add(posFood);
+                }
+                foreach (Point p in ateFoot) {
+                    allFood.Remove(p);
+                    if (entity.countIteration < 80) entity.countIteration += 20;
+                }
+                if (entity.countIteration == 0 || entity.countIterationInLife == 0) allDeadPerson.Add(entity);
+            }
+            List<Entity> allPersonCopy = allPerson.GetRange(0,allPerson.Count);
+            int i = 0;
+            while(allPersonCopy.Count != 0) {
+                Entity entityIntersection = allPersonCopy[i].isPersonalSpaceEntity(allPersonCopy);
+                if (entityIntersection != null) {
+                    Rectangle R = new Rectangle(Math.Min(entityIntersection.position.X, allPersonCopy[i].position.X), Math.Min(entityIntersection.position.Y, allPersonCopy[i].position.Y), 2 * size.Width, 2 * size.Height);
+                    if (entityIntersection.countIteration <= 20 && allPersonCopy[i].countIteration <= 20) {
+                        children.Add(new Entity(new Point(R.X, R.Y), colors[random.Next(2)]));
+//                        children.Add(new Entity(new Point(R.Right, R.Bottom), colors[random.Next(2)]));
+                    }
+                    if (entityIntersection.countIteration <= 10 || allPersonCopy[i].countIteration <= 10) {
+                        children.Add(new Entity(new Point(R.X, R.Y), colors[random.Next(2)]));
+                    }
+                    if (entityIntersection.countIteration <= 40 || allPersonCopy[i].countIteration <= 40) {
+                        children.Add(new Entity(new Point(R.X, R.Y), colors[random.Next(2)]));
+//                        children.Add(new Entity(new Point(R.Right, R.Bottom), colors[random.Next(2)]));
+//                        children.Add(new Entity(new Point(R.X, R.Bottom), colors[random.Next(2)]));
+                    }
+                    if (entityIntersection.countIteration <= 60 && allPersonCopy[i].countIteration <= 60) {
+                        children.Add(new Entity(new Point(R.X, R.Y), colors[random.Next(2)]));
+//                        children.Add(new Entity(new Point(R.Right, R.Bottom), colors[random.Next(2)]));
+//                        children.Add(new Entity(new Point(R.X, R.Bottom), colors[random.Next(2)]));
+//                        children.Add(new Entity(new Point(R.Right, R.Y), colors[random.Next(2)]));
+                    }
+                    allPersonCopy.Remove(entityIntersection);
+                }
+                allPersonCopy.RemoveAt(i);
+            }
+            foreach (Entity entity1 in allDeadPerson) allPerson.Remove(entity1);
+            foreach (Entity entity1 in children) allPerson.Add(entity1);
+            allDeadPerson.Clear();
             board.Refresh();
         }
     }
@@ -64,10 +105,12 @@ namespace Life {
     public class Entity {
         readonly List<Point> orientations = new List<Point>() { new Point(0, -1), new Point(-1, 0), new Point(0, 1), new Point(1, 0) };
         public Point position;
-        public int countStepsInLife = 500;
-        public int countSteps = 20;
+        public int countIterationInLife = 500;
+        public int countIteration = 200;
         private static readonly Random random = new Random();
         public Color gender;
+        public int radius = Form1.size.Width;
+        public int countSteps = 5;
 
         public Entity(Point position, Color gender) {
             this.position = position;
@@ -75,23 +118,40 @@ namespace Life {
         }
 
         public void Run(PictureBox board) {
-//            ((Bitmap)board.Image).GetPixel(1, 1);
-
             Point orientation = orientations[random.Next(orientations.Count)];
-            int countSteps = random.Next(1, this.countSteps);
             position.X += orientation.X * countSteps;
             position.Y += orientation.Y * countSteps;
-            while (position.X + 5 > board.Width)
-                position.X -= 2 * (position.X + 5 - board.Width);
-            while (position.X - 5 < 0)
-                position.X += 2 * (position.X - 5);
-            while (position.Y + 5 > board.Height)
-                position.Y -= 2 * (position.Y + 5 - board.Height);
-            while (position.Y - 5 < 0)
-                position.Y += 2 * (position.Y - 5);
+            if (position.X + radius > board.Width) {
+                position.X = 2 * radius + position.X - board.Width;
+            }
+            if (position.X - radius < 0) {
+                position.X = board.Width + position.X - 2 * radius;
+            }
+            if (position.Y + radius > board.Height) {
+                position.Y = 2 * radius + position.Y - board.Height;
+            }
+            if (position.Y - radius < 0) {
+                position.Y = board.Height + position.Y - 2 * radius;
+            }
+            countIteration--;
+            countIterationInLife--;
+        }
 
-            //            this.countSteps -= countSteps;
-            //            countStepsInLife -= countSteps;
+        public Entity isPersonalSpaceEntity(List<Entity> entities) {
+            for (int i = 0; i < entities.Count; i++) {
+                if (entities[i] != this && entities[i].gender != gender) {
+                    Point distance = new Point(Math.Abs(entities[i].position.X - position.X), Math.Abs(entities[i].position.Y - position.Y));
+                    if (distance.X < radius && distance.Y < radius) {
+                        return entities[i];
+                    }
+                }
+            }
+            return null;
+        }
+        public bool isPersonalSpaceFood(Point food) {
+            Point distance = new Point(Math.Abs(food.X - position.X), Math.Abs(food.Y - position.Y));
+            if (distance.X < radius && distance.Y < radius) return true;
+            else return false;
         }
     }
 }
