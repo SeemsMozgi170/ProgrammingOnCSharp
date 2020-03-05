@@ -17,9 +17,11 @@ namespace Life {
         List<Point> allFood = new List<Point>();
         List<Entity> allDeadPerson = new List<Entity>();
         Graphics g;
+        public int maxEntity = 500, countAteFood = 0;
         public static List<Color> colors = new List<Color>() { Color.Blue, Color.Red, Color.Green };
         readonly Random random = new Random();
         long step = 0;
+        DateTime timeStart;
 
         public Form1() {
             InitializeComponent();
@@ -36,6 +38,7 @@ namespace Life {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+            timeStart = DateTime.Now;
             board.Size = new Size(800, 600);
             timer1.Enabled = true;
             allPerson.Add(new Entity(new Point(385, 285),colors[0]));
@@ -48,8 +51,8 @@ namespace Life {
                 g.FillEllipse(new SolidBrush(entity.gender), new Rectangle(entity.position, size));
             }
             if (step % 100 == 0) generateFood();
-            //foreach (Point p in allFood)
-            //    g.FillEllipse(new SolidBrush(colors[2]), new Rectangle(p, size));
+            foreach (Point p in allFood)
+                g.FillEllipse(new SolidBrush(colors[2]), new Rectangle(p, size));
         }
 
         private void Timer1_Tick(object sender, EventArgs e) {
@@ -61,6 +64,7 @@ namespace Life {
                 foreach (Point posFood in allFood) {
                     if (entity.isPersonalSpaceFood(posFood)) ateFoot.Add(posFood);
                 }
+                countAteFood += ateFoot.Count;
                 foreach (Point p in ateFoot) {
                     allFood.Remove(p);
                     if (entity.countIteration < 80) entity.countIteration += 20;
@@ -99,6 +103,15 @@ namespace Life {
             foreach (Entity entity1 in children) allPerson.Add(entity1);
             allDeadPerson.Clear();
             board.Refresh();
+            if (allPerson.Count >= maxEntity || allPerson.Count == 0) {
+                timer1.Enabled = false;
+                int countM = 0, countW = 0;
+                foreach (Entity entity1 in allPerson) {
+                    if (entity1.gender == Color.Red) countW++;
+                    else countM++;
+                }
+                MessageBox.Show("Потрачено времени = " + Math.Round((DateTime.Now - timeStart).TotalSeconds,3) + "\nКоличество женщин = " + countM + "\nКоличество мужчин = " + countW + "\nКоличество съеденной еды = " + countAteFood);
+            }
         }
     }
 

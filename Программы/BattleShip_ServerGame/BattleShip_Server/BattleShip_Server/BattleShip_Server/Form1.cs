@@ -83,6 +83,7 @@ namespace BattleShip_Server {
             for (int i = 0; i < sizePole; i++)
                 for (int j = 0; j < sizePole; j++)
                     if (OpponentBoard[i, j].BackColor == Color.Blue) OpponentBoard[i, j].Enabled = false;
+
         }
 
         private void StartServer(object sender, EventArgs e) {
@@ -101,6 +102,10 @@ namespace BattleShip_Server {
             listeningButton.Enabled = false;
             stopButton.Enabled = false;
             startButton.Enabled = true;
+        }
+
+        private void groupBoxYourBoard_Enter(object sender, EventArgs e) {
+
         }
 
         private void reBuildYourBoard_Click(object sender, EventArgs e) {
@@ -133,6 +138,9 @@ namespace BattleShip_Server {
                         if (data == "true") {
                             OpponentBoard[indexes[0], indexes[1]].Invoke(new Action(() => OpponentBoard[indexes[0], indexes[1]].BackColor = Color.Red));
                             isWiner++;
+                            for (int i = 0; i < sizePole; i++)
+                                for (int j = 0; j < sizePole; j++)
+                                    if (OpponentBoard[i, j].BackColor == Color.Blue) OpponentBoard[i, j].Invoke(new Action(() => OpponentBoard[i, j].Enabled = true));
                             if (isWiner == 20) {
                                 MessageBox.Show("Вы победили");
                                 byte[] msg = Encoding.UTF8.GetBytes("Вы проиграли");
@@ -140,8 +148,9 @@ namespace BattleShip_Server {
                                 break;
                             }
                         }
-                        else
+                        else {
                             OpponentBoard[indexes[0], indexes[1]].Invoke(new Action(() => OpponentBoard[indexes[0], indexes[1]].BackColor = Color.White));
+                        }
                     }
                     if (regex.IsMatch(data)) {
                         string[] splitData = data.Split(' ');
@@ -155,12 +164,12 @@ namespace BattleShip_Server {
                         else {
                             YourBoard[indexes[0], indexes[1]].Invoke(new Action(() => YourBoard[indexes[0], indexes[1]].BackColor = Color.White));
                             answer = "false";
+                            for (int i = 0; i < sizePole; i++)
+                                for (int j = 0; j < sizePole; j++)
+                                    if (OpponentBoard[i, j].BackColor == Color.Blue) OpponentBoard[i, j].Invoke(new Action(() => OpponentBoard[i, j].Enabled = true));
                         }
                         byte[] msg = Encoding.UTF8.GetBytes(answer);
                         handler.Send(msg);
-                        for (int i = 0; i < sizePole; i++)
-                            for (int j = 0; j < sizePole; j++)
-                                if (OpponentBoard[i, j].BackColor == Color.Blue) OpponentBoard[i, j].Invoke(new Action(() => OpponentBoard[i, j].Enabled = true));
 
                     }
                     if (data == "<>") {

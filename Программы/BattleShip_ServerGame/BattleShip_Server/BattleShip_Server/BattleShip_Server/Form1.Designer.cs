@@ -76,6 +76,7 @@
             this.groupBoxYourBoard.TabIndex = 7;
             this.groupBoxYourBoard.TabStop = false;
             this.groupBoxYourBoard.Text = "Ваше игровое поле";
+            this.groupBoxYourBoard.Enter += new System.EventHandler(this.groupBoxYourBoard_Enter);
             // 
             // groupBoxOpponentBoard
             // 

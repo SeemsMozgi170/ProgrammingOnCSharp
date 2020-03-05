@@ -110,7 +110,8 @@ namespace BattleShip_Client {
             int bytesSent = socketSender.Send(msg);
             for (int i = 0; i < sizePole; i++)
                 for (int j = 0; j < sizePole; j++)
-                    if (OpponentBoard[i,j].BackColor == Color.Blue) OpponentBoard[i, j].Enabled = false;
+                    if (OpponentBoard[i, j].BackColor == Color.Blue) OpponentBoard[i, j].Enabled = false;
+
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e) {
@@ -130,6 +131,9 @@ namespace BattleShip_Client {
                         if (data == "true") {
                             OpponentBoard[indexes[0], indexes[1]].Invoke(new Action(() => OpponentBoard[indexes[0], indexes[1]].BackColor = Color.Red));
                             isWiner++;
+                            for (int i = 0; i < sizePole; i++)
+                                for (int j = 0; j < sizePole; j++)
+                                    if (OpponentBoard[i, j].BackColor == Color.Blue) OpponentBoard[i, j].Invoke(new Action(() => OpponentBoard[i, j].Enabled = true));
                             if (isWiner == 20) {
                                 MessageBox.Show("Вы победили");
                                 byte[] msg = Encoding.UTF8.GetBytes("Вы проиграли");
@@ -137,8 +141,9 @@ namespace BattleShip_Client {
                                 break;
                             }
                         }
-                        else
+                        else {
                             OpponentBoard[indexes[0], indexes[1]].Invoke(new Action(() => OpponentBoard[indexes[0], indexes[1]].BackColor = Color.White));
+                        }
                     }
                     if (regex.IsMatch(data)) {
                         string[] splitData = data.Split(' ');
@@ -152,12 +157,12 @@ namespace BattleShip_Client {
                         else {
                             YourBoard[indexes[0], indexes[1]].Invoke(new Action(() => YourBoard[indexes[0], indexes[1]].BackColor = Color.White));
                             answer = "false";
+                            for (int i = 0; i < sizePole; i++)
+                                for (int j = 0; j < sizePole; j++)
+                                    if (OpponentBoard[i, j].BackColor == Color.Blue) OpponentBoard[i, j].Invoke(new Action(() => OpponentBoard[i, j].Enabled = true));
                         }
                         byte[] msg = Encoding.UTF8.GetBytes(answer);
                         socketSender.Send(msg);
-                        for (int i = 0; i < sizePole; i++)
-                            for (int j = 0; j < sizePole; j++)
-                                if (OpponentBoard[i, j].BackColor == Color.Blue) OpponentBoard[i, j].Invoke(new Action(() => OpponentBoard[i, j].Enabled = true));
                     }
                     if (isCancel) break;
                 }
