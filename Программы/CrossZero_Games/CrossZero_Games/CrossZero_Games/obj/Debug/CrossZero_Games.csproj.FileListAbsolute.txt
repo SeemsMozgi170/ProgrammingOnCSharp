@@ -1,9 +1,0 @@
-C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\CrossZero_Games\bin\Debug\CrossZero_Games.exe.config
-C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\CrossZero_Games\bin\Debug\CrossZero_Games.exe
-C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\CrossZero_Games\bin\Debug\CrossZero_Games.pdb
-C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\CrossZero_Games\obj\Debug\CrossZero_Games.csprojAssemblyReference.cache
-C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\CrossZero_Games\obj\Debug\CrossZero_Games.Form1.resources
-C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\CrossZero_Games\obj\Debug\CrossZero_Games.Properties.Resources.resources
-C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\CrossZero_Games\obj\Debug\CrossZero_Games.csproj.GenerateResource.cache
-C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\CrossZero_Games\obj\Debug\CrossZero_Games.exe
-C:\Users\Ibrag\Desktop\C#\Lab Works\Программы\CrossZero_Games\CrossZero_Games\CrossZero_Games\obj\Debug\CrossZero_Games.pdb
