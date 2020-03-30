@@ -79,21 +79,21 @@ namespace Life {
                     Rectangle R = new Rectangle(Math.Min(entityIntersection.position.X, allPersonCopy[i].position.X), Math.Min(entityIntersection.position.Y, allPersonCopy[i].position.Y), 2 * size.Width, 2 * size.Height);
                     if (entityIntersection.countIteration <= 20 && allPersonCopy[i].countIteration <= 20) {
                         children.Add(new Entity(new Point(R.X, R.Y), colors[random.Next(2)]));
-//                        children.Add(new Entity(new Point(R.Right, R.Bottom), colors[random.Next(2)]));
+                        children.Add(new Entity(new Point(R.Right, R.Bottom), colors[random.Next(2)]));
                     }
                     if (entityIntersection.countIteration <= 10 || allPersonCopy[i].countIteration <= 10) {
                         children.Add(new Entity(new Point(R.X, R.Y), colors[random.Next(2)]));
                     }
                     if (entityIntersection.countIteration <= 40 || allPersonCopy[i].countIteration <= 40) {
                         children.Add(new Entity(new Point(R.X, R.Y), colors[random.Next(2)]));
-//                        children.Add(new Entity(new Point(R.Right, R.Bottom), colors[random.Next(2)]));
-//                        children.Add(new Entity(new Point(R.X, R.Bottom), colors[random.Next(2)]));
+                        children.Add(new Entity(new Point(R.Right, R.Bottom), colors[random.Next(2)]));
+                        children.Add(new Entity(new Point(R.X, R.Bottom), colors[random.Next(2)]));
                     }
                     if (entityIntersection.countIteration <= 60 && allPersonCopy[i].countIteration <= 60) {
                         children.Add(new Entity(new Point(R.X, R.Y), colors[random.Next(2)]));
-//                        children.Add(new Entity(new Point(R.Right, R.Bottom), colors[random.Next(2)]));
-//                        children.Add(new Entity(new Point(R.X, R.Bottom), colors[random.Next(2)]));
-//                        children.Add(new Entity(new Point(R.Right, R.Y), colors[random.Next(2)]));
+                        children.Add(new Entity(new Point(R.Right, R.Bottom), colors[random.Next(2)]));
+                        children.Add(new Entity(new Point(R.X, R.Bottom), colors[random.Next(2)]));
+                        children.Add(new Entity(new Point(R.Right, R.Y), colors[random.Next(2)]));
                     }
                     allPersonCopy.Remove(entityIntersection);
                 }
